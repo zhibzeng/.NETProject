@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsClient", "WindowsClient\WindowsClient.csproj", "{EEEB1142-6FA8-4EAF-8B14-C5CE60CEFA8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEEB1142-6FA8-4EAF-8B14-C5CE60CEFA8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEEB1142-6FA8-4EAF-8B14-C5CE60CEFA8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEEB1142-6FA8-4EAF-8B14-C5CE60CEFA8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEB1142-6FA8-4EAF-8B14-C5CE60CEFA8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

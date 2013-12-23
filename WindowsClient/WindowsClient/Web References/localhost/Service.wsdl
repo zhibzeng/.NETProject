@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="validateUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryAllEmployee">
+        <s:complexType />
+      </s:element>
+      <s:element name="QueryAllEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryAllEmployeeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmployeeByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmployeeID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmployeeByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteEmployeeByIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperateEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="i" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OperateEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OperateEmployeeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalNextEmployeeCode">
+        <s:complexType />
+      </s:element>
+      <s:element name="CalNextEmployeeCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalNextEmployeeCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryEmployeeByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="staffName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryEmployeeByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryEmployeeByNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryCompanies">
+        <s:complexType />
+      </s:element>
+      <s:element name="QueryCompaniesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryCompaniesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperaCompanies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="i" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperaCompaniesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OperaCompaniesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryGoods">
+        <s:complexType />
+      </s:element>
+      <s:element name="QueryGoodsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryGoodsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryGoodsByCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryGoodsByCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryGoodsByCodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryGoodsByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryGoodsByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryGoodsByNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryGoodsByWarehouseID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryGoodsByWarehouseIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryGoodsByWarehouseIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryAllProductInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="QueryAllProductInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryAllProductInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperateProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="op" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperateProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OperateProductResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalNextProductCode">
+        <s:complexType />
+      </s:element>
+      <s:element name="CalNextProductCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalNextProductCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPurOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPurOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryPurOrderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPurNotInOrder">
+        <s:complexType />
+      </s:element>
+      <s:element name="QueryPurNotInOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryPurNotInOrderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPurOrderByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPurOrderByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryPurOrderByIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperatePurOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="op" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperatePurOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OperatePurOrderResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryWH">
+        <s:complexType />
+      </s:element>
+      <s:element name="QueryWHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryWHResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalNextPurchaseCode">
+        <s:complexType />
+      </s:element>
+      <s:element name="CalNextPurchaseCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalNextPurchaseCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="calNextWarehousingCode">
+        <s:complexType />
+      </s:element>
+      <s:element name="calNextWarehousingCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="calNextWarehousingCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="operateWarehousingRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="op" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="operateWarehousingRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operateWarehousingRecordResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryWarehousing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="op" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryWarehousingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryWarehousingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySaleOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySaleOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySaleOrdersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperateSaleOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="op" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperateSaleOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OperateSaleOrderResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalNextSaleOrderCode">
+        <s:complexType />
+      </s:element>
+      <s:element name="CalNextSaleOrderCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalNextSaleOrderCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySaleNotOutOrders">
+        <s:complexType />
+      </s:element>
+      <s:element name="QuerySaleNotOutOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySaleNotOutOrdersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateTestData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GenerateTestDataResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="validateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:validateUser" />
+  </wsdl:message>
+  <wsdl:message name="validateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:validateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryAllEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryAllEmployee" />
+  </wsdl:message>
+  <wsdl:message name="QueryAllEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryAllEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeByID" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="OperateEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:OperateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="OperateEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:OperateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalNextEmployeeCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:CalNextEmployeeCode" />
+  </wsdl:message>
+  <wsdl:message name="CalNextEmployeeCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:CalNextEmployeeCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryEmployeeByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryEmployeeByName" />
+  </wsdl:message>
+  <wsdl:message name="QueryEmployeeByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryEmployeeByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryCompaniesSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryCompanies" />
+  </wsdl:message>
+  <wsdl:message name="QueryCompaniesSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OperaCompaniesSoapIn">
+    <wsdl:part name="parameters" element="tns:OperaCompanies" />
+  </wsdl:message>
+  <wsdl:message name="OperaCompaniesSoapOut">
+    <wsdl:part name="parameters" element="tns:OperaCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryGoodsSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryGoods" />
+  </wsdl:message>
+  <wsdl:message name="QueryGoodsSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryGoodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryGoodsByCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryGoodsByCode" />
+  </wsdl:message>
+  <wsdl:message name="QueryGoodsByCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryGoodsByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryGoodsByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryGoodsByName" />
+  </wsdl:message>
+  <wsdl:message name="QueryGoodsByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryGoodsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryGoodsByWarehouseIDSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryGoodsByWarehouseID" />
+  </wsdl:message>
+  <wsdl:message name="QueryGoodsByWarehouseIDSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryGoodsByWarehouseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryAllProductInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryAllProductInfo" />
+  </wsdl:message>
+  <wsdl:message name="QueryAllProductInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryAllProductInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="OperateProductSoapIn">
+    <wsdl:part name="parameters" element="tns:OperateProduct" />
+  </wsdl:message>
+  <wsdl:message name="OperateProductSoapOut">
+    <wsdl:part name="parameters" element="tns:OperateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalNextProductCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:CalNextProductCode" />
+  </wsdl:message>
+  <wsdl:message name="CalNextProductCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:CalNextProductCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryPurOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryPurOrder" />
+  </wsdl:message>
+  <wsdl:message name="QueryPurOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryPurOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryPurNotInOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryPurNotInOrder" />
+  </wsdl:message>
+  <wsdl:message name="QueryPurNotInOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryPurNotInOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryPurOrderByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryPurOrderByID" />
+  </wsdl:message>
+  <wsdl:message name="QueryPurOrderByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryPurOrderByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="OperatePurOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:OperatePurOrder" />
+  </wsdl:message>
+  <wsdl:message name="OperatePurOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:OperatePurOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryWHSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryWH" />
+  </wsdl:message>
+  <wsdl:message name="QueryWHSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryWHResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalNextPurchaseCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:CalNextPurchaseCode" />
+  </wsdl:message>
+  <wsdl:message name="CalNextPurchaseCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:CalNextPurchaseCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="calNextWarehousingCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:calNextWarehousingCode" />
+  </wsdl:message>
+  <wsdl:message name="calNextWarehousingCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:calNextWarehousingCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="operateWarehousingRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:operateWarehousingRecord" />
+  </wsdl:message>
+  <wsdl:message name="operateWarehousingRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:operateWarehousingRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryWarehousingSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryWarehousing" />
+  </wsdl:message>
+  <wsdl:message name="QueryWarehousingSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryWarehousingResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySaleOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySaleOrders" />
+  </wsdl:message>
+  <wsdl:message name="QuerySaleOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySaleOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="OperateSaleOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:OperateSaleOrder" />
+  </wsdl:message>
+  <wsdl:message name="OperateSaleOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:OperateSaleOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalNextSaleOrderCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:CalNextSaleOrderCode" />
+  </wsdl:message>
+  <wsdl:message name="CalNextSaleOrderCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:CalNextSaleOrderCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySaleNotOutOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySaleNotOutOrders" />
+  </wsdl:message>
+  <wsdl:message name="QuerySaleNotOutOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySaleNotOutOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTestDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateTestData" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTestDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateTestDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证用户；输入参数：用户名(string),密码(string)；返回：真/假</wsdl:documentation>
+      <wsdl:input message="tns:validateUserSoapIn" />
+      <wsdl:output message="tns:validateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllEmployee">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询所有员工信息</wsdl:documentation>
+      <wsdl:input message="tns:QueryAllEmployeeSoapIn" />
+      <wsdl:output message="tns:QueryAllEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeByID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除员工记录</wsdl:documentation>
+      <wsdl:input message="tns:DeleteEmployeeByIDSoapIn" />
+      <wsdl:output message="tns:DeleteEmployeeByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OperateEmployee">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加//修改y员工信息</wsdl:documentation>
+      <wsdl:input message="tns:OperateEmployeeSoapIn" />
+      <wsdl:output message="tns:OperateEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalNextEmployeeCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成下一个员工代码</wsdl:documentation>
+      <wsdl:input message="tns:CalNextEmployeeCodeSoapIn" />
+      <wsdl:output message="tns:CalNextEmployeeCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryEmployeeByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询某个员工信息</wsdl:documentation>
+      <wsdl:input message="tns:QueryEmployeeByNameSoapIn" />
+      <wsdl:output message="tns:QueryEmployeeByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCompanies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询分公司信息；输入：无；返回DataSet</wsdl:documentation>
+      <wsdl:input message="tns:QueryCompaniesSoapIn" />
+      <wsdl:output message="tns:QueryCompaniesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OperaCompanies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加/删除/修改分公司信息；输入：object数组，int i(i=1表示插入 i=2表示更新 i=3表示删除)无；返回DataSet</wsdl:documentation>
+      <wsdl:input message="tns:OperaCompaniesSoapIn" />
+      <wsdl:output message="tns:OperaCompaniesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询产品列表</wsdl:documentation>
+      <wsdl:input message="tns:QueryGoodsSoapIn" />
+      <wsdl:output message="tns:QueryGoodsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoodsByCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据代码查询产品</wsdl:documentation>
+      <wsdl:input message="tns:QueryGoodsByCodeSoapIn" />
+      <wsdl:output message="tns:QueryGoodsByCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoodsByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据名称查询产品</wsdl:documentation>
+      <wsdl:input message="tns:QueryGoodsByNameSoapIn" />
+      <wsdl:output message="tns:QueryGoodsByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoodsByWarehouseID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">按仓库代码查询产品列表</wsdl:documentation>
+      <wsdl:input message="tns:QueryGoodsByWarehouseIDSoapIn" />
+      <wsdl:output message="tns:QueryGoodsByWarehouseIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllProductInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">产品信息浏览</wsdl:documentation>
+      <wsdl:input message="tns:QueryAllProductInfoSoapIn" />
+      <wsdl:output message="tns:QueryAllProductInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OperateProduct">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增/更新产品目录</wsdl:documentation>
+      <wsdl:input message="tns:OperateProductSoapIn" />
+      <wsdl:output message="tns:OperateProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalNextProductCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成下一个产品代码</wsdl:documentation>
+      <wsdl:input message="tns:CalNextProductCodeSoapIn" />
+      <wsdl:output message="tns:CalNextProductCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPurOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询采购订单</wsdl:documentation>
+      <wsdl:input message="tns:QueryPurOrderSoapIn" />
+      <wsdl:output message="tns:QueryPurOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPurNotInOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询已审批但未入库的采购订单</wsdl:documentation>
+      <wsdl:input message="tns:QueryPurNotInOrderSoapIn" />
+      <wsdl:output message="tns:QueryPurNotInOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPurOrderByID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据订单号查询采购订单</wsdl:documentation>
+      <wsdl:input message="tns:QueryPurOrderByIDSoapIn" />
+      <wsdl:output message="tns:QueryPurOrderByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OperatePurOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增、修改采购订单操作</wsdl:documentation>
+      <wsdl:input message="tns:OperatePurOrderSoapIn" />
+      <wsdl:output message="tns:OperatePurOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryWH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询仓库信息</wsdl:documentation>
+      <wsdl:input message="tns:QueryWHSoapIn" />
+      <wsdl:output message="tns:QueryWHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalNextPurchaseCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成采购订单编号</wsdl:documentation>
+      <wsdl:input message="tns:CalNextPurchaseCodeSoapIn" />
+      <wsdl:output message="tns:CalNextPurchaseCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="calNextWarehousingCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成出入库流水号</wsdl:documentation>
+      <wsdl:input message="tns:calNextWarehousingCodeSoapIn" />
+      <wsdl:output message="tns:calNextWarehousingCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="operateWarehousingRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增出入库存清单</wsdl:documentation>
+      <wsdl:input message="tns:operateWarehousingRecordSoapIn" />
+      <wsdl:output message="tns:operateWarehousingRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryWarehousing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据条件查询出入库存清单信息</wsdl:documentation>
+      <wsdl:input message="tns:QueryWarehousingSoapIn" />
+      <wsdl:output message="tns:QueryWarehousingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySaleOrders">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取所有销售订单</wsdl:documentation>
+      <wsdl:input message="tns:QuerySaleOrdersSoapIn" />
+      <wsdl:output message="tns:QuerySaleOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OperateSaleOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">对销售订单的更改</wsdl:documentation>
+      <wsdl:input message="tns:OperateSaleOrderSoapIn" />
+      <wsdl:output message="tns:OperateSaleOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalNextSaleOrderCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成销售流水号</wsdl:documentation>
+      <wsdl:input message="tns:CalNextSaleOrderCodeSoapIn" />
+      <wsdl:output message="tns:CalNextSaleOrderCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySaleNotOutOrders">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询已审核但未发货的销售订单</wsdl:documentation>
+      <wsdl:input message="tns:QuerySaleNotOutOrdersSoapIn" />
+      <wsdl:output message="tns:QuerySaleNotOutOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTestData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增测试数据</wsdl:documentation>
+      <wsdl:input message="tns:GenerateTestDataSoapIn" />
+      <wsdl:output message="tns:GenerateTestDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateUser">
+      <soap:operation soapAction="http://tempuri.org/validateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllEmployee">
+      <soap:operation soapAction="http://tempuri.org/QueryAllEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeByID">
+      <soap:operation soapAction="http://tempuri.org/DeleteEmployeeByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperateEmployee">
+      <soap:operation soapAction="http://tempuri.org/OperateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalNextEmployeeCode">
+      <soap:operation soapAction="http://tempuri.org/CalNextEmployeeCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryEmployeeByName">
+      <soap:operation soapAction="http://tempuri.org/QueryEmployeeByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCompanies">
+      <soap:operation soapAction="http://tempuri.org/QueryCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperaCompanies">
+      <soap:operation soapAction="http://tempuri.org/OperaCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoods">
+      <soap:operation soapAction="http://tempuri.org/QueryGoods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoodsByCode">
+      <soap:operation soapAction="http://tempuri.org/QueryGoodsByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoodsByName">
+      <soap:operation soapAction="http://tempuri.org/QueryGoodsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoodsByWarehouseID">
+      <soap:operation soapAction="http://tempuri.org/QueryGoodsByWarehouseID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllProductInfo">
+      <soap:operation soapAction="http://tempuri.org/QueryAllProductInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperateProduct">
+      <soap:operation soapAction="http://tempuri.org/OperateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalNextProductCode">
+      <soap:operation soapAction="http://tempuri.org/CalNextProductCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPurOrder">
+      <soap:operation soapAction="http://tempuri.org/QueryPurOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPurNotInOrder">
+      <soap:operation soapAction="http://tempuri.org/QueryPurNotInOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPurOrderByID">
+      <soap:operation soapAction="http://tempuri.org/QueryPurOrderByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperatePurOrder">
+      <soap:operation soapAction="http://tempuri.org/OperatePurOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWH">
+      <soap:operation soapAction="http://tempuri.org/QueryWH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalNextPurchaseCode">
+      <soap:operation soapAction="http://tempuri.org/CalNextPurchaseCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calNextWarehousingCode">
+      <soap:operation soapAction="http://tempuri.org/calNextWarehousingCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="operateWarehousingRecord">
+      <soap:operation soapAction="http://tempuri.org/operateWarehousingRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWarehousing">
+      <soap:operation soapAction="http://tempuri.org/QueryWarehousing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySaleOrders">
+      <soap:operation soapAction="http://tempuri.org/QuerySaleOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperateSaleOrder">
+      <soap:operation soapAction="http://tempuri.org/OperateSaleOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalNextSaleOrderCode">
+      <soap:operation soapAction="http://tempuri.org/CalNextSaleOrderCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySaleNotOutOrders">
+      <soap:operation soapAction="http://tempuri.org/QuerySaleNotOutOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTestData">
+      <soap:operation soapAction="http://tempuri.org/GenerateTestData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateUser">
+      <soap12:operation soapAction="http://tempuri.org/validateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllEmployee">
+      <soap12:operation soapAction="http://tempuri.org/QueryAllEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeByID">
+      <soap12:operation soapAction="http://tempuri.org/DeleteEmployeeByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperateEmployee">
+      <soap12:operation soapAction="http://tempuri.org/OperateEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalNextEmployeeCode">
+      <soap12:operation soapAction="http://tempuri.org/CalNextEmployeeCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryEmployeeByName">
+      <soap12:operation soapAction="http://tempuri.org/QueryEmployeeByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCompanies">
+      <soap12:operation soapAction="http://tempuri.org/QueryCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperaCompanies">
+      <soap12:operation soapAction="http://tempuri.org/OperaCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoods">
+      <soap12:operation soapAction="http://tempuri.org/QueryGoods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoodsByCode">
+      <soap12:operation soapAction="http://tempuri.org/QueryGoodsByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoodsByName">
+      <soap12:operation soapAction="http://tempuri.org/QueryGoodsByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryGoodsByWarehouseID">
+      <soap12:operation soapAction="http://tempuri.org/QueryGoodsByWarehouseID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllProductInfo">
+      <soap12:operation soapAction="http://tempuri.org/QueryAllProductInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperateProduct">
+      <soap12:operation soapAction="http://tempuri.org/OperateProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalNextProductCode">
+      <soap12:operation soapAction="http://tempuri.org/CalNextProductCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPurOrder">
+      <soap12:operation soapAction="http://tempuri.org/QueryPurOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPurNotInOrder">
+      <soap12:operation soapAction="http://tempuri.org/QueryPurNotInOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPurOrderByID">
+      <soap12:operation soapAction="http://tempuri.org/QueryPurOrderByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperatePurOrder">
+      <soap12:operation soapAction="http://tempuri.org/OperatePurOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWH">
+      <soap12:operation soapAction="http://tempuri.org/QueryWH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalNextPurchaseCode">
+      <soap12:operation soapAction="http://tempuri.org/CalNextPurchaseCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calNextWarehousingCode">
+      <soap12:operation soapAction="http://tempuri.org/calNextWarehousingCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="operateWarehousingRecord">
+      <soap12:operation soapAction="http://tempuri.org/operateWarehousingRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWarehousing">
+      <soap12:operation soapAction="http://tempuri.org/QueryWarehousing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySaleOrders">
+      <soap12:operation soapAction="http://tempuri.org/QuerySaleOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperateSaleOrder">
+      <soap12:operation soapAction="http://tempuri.org/OperateSaleOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalNextSaleOrderCode">
+      <soap12:operation soapAction="http://tempuri.org/CalNextSaleOrderCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySaleNotOutOrders">
+      <soap12:operation soapAction="http://tempuri.org/QuerySaleNotOutOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTestData">
+      <soap12:operation soapAction="http://tempuri.org/GenerateTestData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost:4389/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost:4389/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
